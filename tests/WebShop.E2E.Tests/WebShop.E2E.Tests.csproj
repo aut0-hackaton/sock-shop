@@ -32,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Bindings\CartBindings.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Bindings\BasicStepBindings.cs">
       <SubType>Code</SubType>
     </Compile>
