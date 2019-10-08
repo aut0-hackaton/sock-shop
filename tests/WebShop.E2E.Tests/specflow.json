@@ -2,6 +2,13 @@
   "AppSettings": {
     "BaseUrl": "http://ec2-54-224-182-6.compute-1.amazonaws.com/index.html"
   },
+
+  "Users": [
+    {
+      "Username": "user",
+      "Password": "password"
+    }
+  ],
   "bindingCulture": {
     "language": "en-us"
   },

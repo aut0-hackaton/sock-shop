@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
+using WebShop.E2E.Tests.Configuration;
+using WebShop.Ui.Enums;
 using WebShop.Ui.PageObjects;
 
 namespace WebShop.E2E.Tests.Bindings
@@ -20,15 +22,23 @@ namespace WebShop.E2E.Tests.Bindings
             webDriver = context.Get<IWebDriver>();
         }
 
-        [Given(@"I logged in as user(.*)")]
-        public void GivenILoggedInAsUser(int p0)
+        [Given(@"logged in as (.*)")]
+        public void GivenILoggedInAsUser(string userName)
         {
             var loginForm = new BasePage(webDriver).LoginForm;
-
-            loginForm.Username = "User";
-            loginForm.Password = "password";
+            var user = TestConfig.Instance.TestUsers.FirstOrDefault(u => u.Name.Equals(userName));
+            loginForm.Username = user.Name;
+            loginForm.Password = user.Password;
             loginForm.Login();
         }
+
+        [Given(@"it is (.*) page")]
+        public void GivenItIsCatalogPage(string pageName)
+        {
+            var navbar = new BasePage(webDriver).NavBar;
+            navbar.NavigateTo(pageName);
+        }
+
 
     }
 }

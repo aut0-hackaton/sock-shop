@@ -70,9 +70,9 @@ namespace WebShop.E2E.Tests
         {
 #line 4
 #line 5
- testRunner.Given("I logged in as user1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("logged in as user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.And("I went to \"Catalogue\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("it is catalog page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 7
  testRunner.When("I choose socks \"Colourful\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8

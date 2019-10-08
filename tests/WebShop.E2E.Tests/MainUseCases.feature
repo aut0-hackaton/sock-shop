@@ -2,8 +2,8 @@
 
 
 Background:
-	Given I logged in as user1
-	And I went to "Catalogue"
+	Given logged in as user
+		And it is catalog page
 	When I choose socks "Colourful"
 	   * I press button "Add to cart"
 	   * I press button "in cart"

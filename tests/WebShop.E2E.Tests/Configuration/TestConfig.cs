@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
@@ -25,5 +27,8 @@ namespace WebShop.E2E.Tests.Configuration
         public string ExecutingAssemblyPath { get; }
             //.Split("SpecFlowPlusRunner")[0]
         public Uri BaseUrl => new Uri(config["AppSettings:BaseUrl"]);
+
+        public IEnumerable<UserConfig> TestUsers =>
+            config.GetSection("Users").GetChildren().Select(s => new UserConfig(s));
     }
 }

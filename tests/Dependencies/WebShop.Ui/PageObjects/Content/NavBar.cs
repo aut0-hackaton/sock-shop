@@ -15,8 +15,12 @@ namespace WebShop.Ui.PageObjects.Content
         {
         }
 
-        public void NavigateTo(Pages page)
+        public void NavigateTo(string page)
         {
+            if (!pageObjectByPage.ContainsKey(page))
+            {
+                throw new Exception($"Navigation to {page} page is not implemented");
+            }
             pageObjectByPage[page].Invoke();
         }
 
@@ -33,11 +37,11 @@ namespace WebShop.Ui.PageObjects.Content
         {
             scope.FindElement(cartBtn).Click();
         }
-        private Dictionary<Pages, Action> pageObjectByPage => new Dictionary<Pages, Action>
+        private Dictionary<string, Action> pageObjectByPage => new Dictionary<string, Action>
         {
-            {Pages.Home, GoToHome},
-            {Pages.Catalog, GoToCatalogue},
-            {Pages.Cart, GoToCart},
+            {"home", GoToHome},
+            {"catalog", GoToCatalogue},
+            {"cart", GoToCart},
         };
     }
 }
