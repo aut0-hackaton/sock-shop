@@ -5,14 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="C:\Users\kockas\.nuget\packages\specrun.runner\3.0.391\build\..\tools\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="77.0.3865.4000" />
-    <PackageReference Include="SpecFlow" Version="3.0.225" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.0.225" />
-    <PackageReference Include="SpecRun.Runner" Version="3.0.391" />
-    <PackageReference Include="SpecRun.SpecFlow" Version="3.0.391" />
-    <PackageReference Include="SpecRun.SpecFlow.3-0-0" Version="3.0.391" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,15 +26,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
-    <None Update="specflow.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
-
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties specflow_1json__JSONSchema="http://json.schemastore.org/appsettings" />
-    </VisualStudio>
-  </ProjectExtensions>
+  
 
 </Project>
