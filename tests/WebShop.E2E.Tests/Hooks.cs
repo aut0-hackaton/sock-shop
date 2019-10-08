@@ -27,7 +27,7 @@ namespace WebShop.E2E.Tests
             webDriver = CreateWebDriver();
             webDriver.Manage().Window.Maximize();
             scenarioContext.Set(webDriver);
-            webDriver.Navigate().GoToUrl("http://ec2-54-224-182-6.compute-1.amazonaws.com/index.html");
+            webDriver.Navigate().GoToUrl(TestConfig.Instance.BaseUrl);
         }
 
         [AfterScenario]
@@ -38,7 +38,7 @@ namespace WebShop.E2E.Tests
 
         public IWebDriver CreateWebDriver()
         {
-            return new ChromeDriver(TestConfig.Instance.BaseDirectory);
+            return new ChromeDriver(TestConfig.Instance.ExecutingAssemblyPath);
         }
     }
 }
