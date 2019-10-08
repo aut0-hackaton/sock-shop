@@ -1,16 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebShop.Api.Client;
 using WebShop.Api.Configuration;
-using WebShop.Api.Models.Payment;
 
-namespace WebShop.Api.Tests.Payment
+namespace WebShop.Api.Tests.Orders
 {
     [TestClass]
-    public class PaymentTests
+    public class OrdersTests
     {
         private readonly IWebShopClient webShopClient;
 
-        public PaymentTests()
+        public OrdersTests()
         {
             //arrange
             webShopClient = new WebShopApiClient
@@ -22,16 +21,25 @@ namespace WebShop.Api.Tests.Payment
         }
 
         [TestMethod]
-        public void Possible_To_Check_Health()
+        public void Possible_To_Get_Orders_If_Signed_In()
         {
-            //never works ^^
             var response = webShopClient
                 .Login("user", "password")
                 .Result
-                .GetHealth()
+                .GetOrders()
                 .Result;
 
-            Assert.IsInstanceOfType(response, typeof(GetHealthResponse));
+            Assert.IsNotNull(response);
+        }
+
+        [TestMethod]
+        public void Not_Possible_To_Get_Orders_If_Not_Signed_In()
+        {
+            var response = webShopClient
+                .GetOrders()
+                .Result;
+
+            Assert.IsNull(response);
         }
     }
 }

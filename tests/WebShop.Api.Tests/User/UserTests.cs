@@ -27,8 +27,7 @@ namespace WebShop.Api.Tests.User
         {
             var response = webShopClient.Login("user", "password").Result;
 
-            Assert.IsTrue(response.Success, "Login was not successful");
-            Assert.AreEqual("Cookie is set", response.Message);
+            Assert.IsNotNull(response, "Login was not successful");
         }
 
         [TestMethod]
