@@ -10,6 +10,7 @@ namespace WebShop.Ui.PageObjects.Content.CartContent
     public class CartItem
     {
         private readonly By name = By.CssSelector("tr > td:nth-child(3)");
+        private readonly By count = By.CssSelector("tr > td:nth-child(4) > input");
         private IWebElement scope;
         public CartItem(IWebElement scope)
         {
@@ -17,5 +18,10 @@ namespace WebShop.Ui.PageObjects.Content.CartContent
         }
 
         public string Name => scope.FindElement(name).Text;
+        public string Count
+        {
+            get { return scope.FindElement(count).Text; }
+            set { scope.FindElement(count).SendKeys(value);}
+        }
     }
 }

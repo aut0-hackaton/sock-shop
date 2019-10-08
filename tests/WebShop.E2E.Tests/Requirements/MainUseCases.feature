@@ -4,7 +4,9 @@
 Background:
 	Given logged in as user
 		And it is catalog page
-		And product "Holy" is added to cart
+		And product "Colourful" is added to cart
+		And it is cart page
+		
 
 Scenario: Add 2 distinct items, pay, view order
 	

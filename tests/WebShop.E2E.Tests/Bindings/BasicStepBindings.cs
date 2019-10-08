@@ -65,5 +65,32 @@ namespace WebShop.E2E.Tests.Bindings
                 $"Item '{itemName}' was not added");
         }
 
+        [When(@"I change quantity of socks ""(.*)"" to (.*)")]
+        public void WhenIChangeQuantityOfSocksTo(string itemName, string count)
+        {
+            var cartPage = new CartPage(webDriver);
+            var item = cartPage.CartItems
+                .FirstOrDefault(i => i.Name.Equals(itemName));
+            if (item ==null)
+            {
+                throw new Exception("Cannot find");
+            }
+            item.Count = count;
+        }
+
+        [When(@"I press button ""(.*)""")]
+        public void WhenIPressButton(string p0)
+        {
+            var cartPage = new CartPage(webDriver);
+            cartPage.UpdateBasket();
+        }
+
+        [Then(@"total price is (.*)")]
+        public void ThenTotalPriceIs(string expectedPrice)
+        {
+            var cartPage = new CartPage(webDriver);
+            Assert.AreEqual(expectedPrice, cartPage.TotalPrice);
+        }
+
     }
 }
