@@ -1,4 +1,5 @@
-﻿Feature: MainUseCases
+﻿@ignore
+Feature: MainUseCases
 
 
 Background:

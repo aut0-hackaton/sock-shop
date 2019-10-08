@@ -17,7 +17,8 @@ namespace WebShop.E2E.Tests.Requirements
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("MainUseCases", SourceFile="Requirements\\MainUseCases.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("MainUseCases", SourceFile="Requirements\\MainUseCases.feature", SourceLine=1)]
+    [TechTalk.SpecRun.IgnoreAttribute()]
     public partial class MainUseCasesFeature
     {
         
@@ -30,7 +31,8 @@ namespace WebShop.E2E.Tests.Requirements
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MainUseCases", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MainUseCases", null, ProgrammingLanguage.CSharp, new string[] {
+                        "ignore"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -68,69 +70,69 @@ namespace WebShop.E2E.Tests.Requirements
         
         public virtual void FeatureBackground()
         {
-#line 4
 #line 5
- testRunner.Given("logged in as user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
-  testRunner.And("it is catalog page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("logged in as user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
-  testRunner.And("product \"Colourful\" is added to cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("it is catalog page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
+  testRunner.And("product \"Colourful\" is added to cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
   testRunner.And("it is cart page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add 2 distinct items, pay, view order", SourceLine=10)]
+        [TechTalk.SpecRun.ScenarioAttribute("Add 2 distinct items, pay, view order", SourceLine=11)]
         public virtual void Add2DistinctItemsPayViewOrder()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add 2 distinct items, pay, view order", null, ((string[])(null)));
-#line 11
+#line 12
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
+#line 5
 this.FeatureBackground();
-#line 13
- testRunner.When("I press button \"Continue shopping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
-    testRunner.And("I choose socks \"Crossed\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.When("I press button \"Continue shopping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
-    testRunner.And("I press button \"Add to cart\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+    testRunner.And("I choose socks \"Crossed\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 16
-    testRunner.And("I press button \"in cart\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+    testRunner.And("I press button \"Add to cart\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 17
- testRunner.Then("total price is 40.31", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("I press button \"in cart\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 18
- testRunner.When("I press button \"Proceed to checkout\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("total price is 40.31", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 19
- testRunner.Then("I am redirected to \"customer-orders\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I press button \"Proceed to checkout\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 20
-    testRunner.And("I see my latest order with a price of 40.31", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.Then("I am redirected to \"customer-orders\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 21
- testRunner.Then("I remember latest order number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("I see my latest order with a price of 40.31", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 22
- testRunner.When("I press button \"View\" on my latest order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("I remember latest order number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 23
- testRunner.Then("I am redirected to \"customer-order.html?order=/orders/<OrderNumber>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I press button \"View\" on my latest order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 24
+ testRunner.Then("I am redirected to \"customer-order.html?order=/orders/<OrderNumber>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
     testRunner.And("I see total price of 40.31", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add 2 same items, delete, check pay button", SourceLine=26)]
+        [TechTalk.SpecRun.ScenarioAttribute("Add 2 same items, delete, check pay button", SourceLine=27)]
         public virtual void Add2SameItemsDeleteCheckPayButton()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add 2 same items, delete, check pay button", null, ((string[])(null)));
-#line 27
+#line 28
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
+#line 5
 this.FeatureBackground();
-#line 28
- testRunner.When("I choose socks \"Colourful\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29
-    testRunner.And("I press button \"Add to cart\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.When("I choose socks \"Colourful\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
+    testRunner.And("I press button \"Add to cart\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 31
     testRunner.And("I press button \"in cart\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -145,26 +147,26 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "Quantity",
                         "2"});
-#line 31
+#line 32
  testRunner.Then("CartProduct has the following fields:", ((string)(null)), table1, "Then ");
-#line 36
- testRunner.When("I delete from cart socks \"Colourful\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 37
+ testRunner.When("I delete from cart socks \"Colourful\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 38
  testRunner.Then("button \"Proceed to checkout\" is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Change shipping details", SourceLine=40)]
+        [TechTalk.SpecRun.ScenarioAttribute("Change shipping details", SourceLine=41)]
         public virtual void ChangeShippingDetails()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change shipping details", null, ((string[])(null)));
-#line 41
+#line 42
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
+#line 5
 this.FeatureBackground();
-#line 42
+#line 43
  testRunner.When("I change Payment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -179,7 +181,7 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "CCV",
                         "465"});
-#line 43
+#line 44
     testRunner.And("I fill in payment details as follows:", ((string)(null)), table2, "* ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -194,7 +196,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "CCV",
                         "465"});
-#line 48
+#line 49
  testRunner.Then("\"Payment\" details are equal to the following:", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -203,33 +205,33 @@ this.FeatureBackground();
         public virtual void AddItemChangeQuantityUpdateBasket(string @case, string quantity, string total, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add item, change quantity, update basket", null, exampleTags);
-#line 56
+#line 57
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
+#line 5
 this.FeatureBackground();
-#line 57
- testRunner.When(string.Format("I change quantity of socks \"Colourful\" to {0}", quantity), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 58
-    testRunner.And("I press button \"Update basket\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.When(string.Format("I change quantity of socks \"Colourful\" to {0}", quantity), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 59
+    testRunner.And("I press button \"Update basket\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 60
  testRunner.Then(string.Format("total price is {0}", total), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add item, change quantity, update basket, Valid quantity", SourceLine=62)]
+        [TechTalk.SpecRun.ScenarioAttribute("Add item, change quantity, update basket, Valid quantity", SourceLine=63)]
         public virtual void AddItemChangeQuantityUpdateBasket_ValidQuantity()
         {
-#line 56
+#line 57
 this.AddItemChangeQuantityUpdateBasket("Valid quantity", "1000", "18000", ((string[])(null)));
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add item, change quantity, update basket, Invalid quantity", SourceLine=62)]
+        [TechTalk.SpecRun.ScenarioAttribute("Add item, change quantity, update basket, Invalid quantity", SourceLine=63)]
         public virtual void AddItemChangeQuantityUpdateBasket_InvalidQuantity()
         {
-#line 56
+#line 57
 this.AddItemChangeQuantityUpdateBasket("Invalid quantity", "-1", "0", ((string[])(null)));
 #line hidden
         }
