@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using WebShop.E2E.Tests.Configuration;
@@ -34,6 +35,7 @@ namespace WebShop.E2E.Tests.Bindings
         }
 
         [Given(@"it is (.*) page")]
+        [When(@"I navigate to (.*) page")]
         public void GivenItIsCatalogPage(string pageName)
         {
             var navbar = new BasePage(webDriver).NavBar;
@@ -53,5 +55,15 @@ namespace WebShop.E2E.Tests.Bindings
             desiredProduct.AddToCart();
             webDriver.WaitUntilPageLoaded();
         }
+
+        [Then(@"there is new item named ""(.*)"" in cart")]
+        public void ThenThereIsNewItemNamedInCart(string itemName)
+        {
+            var cartPage = new CartPage(webDriver);
+
+            Assert.IsTrue(cartPage.CartItems.Exists(i => i.Name.Equals(itemName)),
+                $"Item '{itemName}' was not added");
+        }
+
     }
 }

@@ -35,10 +35,15 @@
     <Compile Update="Bindings\BasicStepBindings.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Requirements\Cart.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Cart.feature</DependentUpon>
+    </Compile>
     <Compile Update="Hooks.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MainUseCases.feature.cs">
+    <Compile Update="Requirements\MainUseCases.feature.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>MainUseCases.feature</DependentUpon>
@@ -55,7 +60,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SpecFlowFeatureFiles Update="MainUseCases.feature">
+    <SpecFlowFeatureFiles Update="Requirements\Cart.feature">
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Requirements\MainUseCases.feature">
     </SpecFlowFeatureFiles>
   </ItemGroup>
 

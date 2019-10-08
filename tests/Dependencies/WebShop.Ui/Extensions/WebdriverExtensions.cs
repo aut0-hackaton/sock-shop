@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -12,6 +13,8 @@ namespace WebShop.E2E.Tests.Extensions
         {
             var wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(30));
             wait.Until(d =>((IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete"));
+
+            Thread.Sleep(500);
         }
     }
 }

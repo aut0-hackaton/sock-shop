@@ -9,7 +9,7 @@ namespace WebShop.Ui.PageObjects.Content
     {
         private readonly By name = By.CssSelector("h3 > a");
         private readonly By price = By.ClassName("price");
-        private readonly By addToCartBtn = By.ClassName("button-primary");
+        private readonly By addToCartBtn = By.ClassName("btn-primary");
 
         private IWebElement scope;
         public ProductCard(IWebElement scope)
