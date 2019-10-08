@@ -33,7 +33,6 @@
   <ItemGroup>
     <SpecFlowFeatureFiles Update="MainUseCases.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>MainUseCases.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
   </ItemGroup>
 

@@ -13,8 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PaymentService\" />
-    <Folder Include="UserService\" />
+    <ProjectReference Include="..\Dependencies\WebShop.Api\WebShop.Api.csproj" />
   </ItemGroup>
 
 </Project>
