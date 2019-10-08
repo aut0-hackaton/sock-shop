@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebShop.Api.Client;
+using WebShop.Api.Configuration;
 using WebShop.Api.Models.User;
 
 namespace WebShop.Api.Tests.User
@@ -15,7 +16,7 @@ namespace WebShop.Api.Tests.User
             //arrange
             webShopClient = new WebShopApiClient
             (
-                new Uri("http://ec2-54-224-182-6.compute-1.amazonaws.com"), 
+                AppSettings.Instance.Endpoint,
                 "user", 
                 "password"
             );
