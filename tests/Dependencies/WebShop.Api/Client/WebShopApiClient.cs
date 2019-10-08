@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WebShop.Api.Configuration;
+using WebShop.Api.Models.Orders;
 using WebShop.Api.Models.Payment;
 using WebShop.Api.Models.User;
 
@@ -55,18 +56,18 @@ namespace WebShop.Api.Client
             headers[name] = value;
         }
 
-        public async Task<UserLoginResponse> Login(string username, string password)
+        public async Task<WebShopApiClient> Login(string username, string password)
         {
             var auth = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes($"{username}:{password}")));
 
-            using (var client = createApiClient())
-            {
-                //reinitialize default auth header 
-                client.DefaultRequestHeaders.Authorization = auth;
+            var client = createApiClient();
 
-                var response = await client.GetAsync("/login");
-                return new UserLoginResponse(response.IsSuccessStatusCode, await response.Content.ReadAsStringAsync());
-            }
+            client.DefaultRequestHeaders.Authorization = auth;
+            var response = await client.GetAsync("/login");
+
+            return response.IsSuccessStatusCode
+                ? new WebShopApiClient(client)
+                : null;
         }
 
         public async Task<GetCustomersResponse> GetCustomers()
@@ -74,7 +75,9 @@ namespace WebShop.Api.Client
             using (var client = createApiClient())
             {
                 var response = await client.GetAsync("/customers");
-                return JsonConvert.DeserializeObject<GetCustomersResponse>(await response.Content.ReadAsStringAsync());
+                return response.IsSuccessStatusCode
+                    ? JsonConvert.DeserializeObject<GetCustomersResponse>(await response.Content.ReadAsStringAsync())
+                    : null;
             }
         }
 
@@ -83,7 +86,20 @@ namespace WebShop.Api.Client
             using (var client = createApiClient())
             {
                 var response = await client.GetAsync("/health");
-                return JsonConvert.DeserializeObject<GetHealthResponse>(await response.Content.ReadAsStringAsync());
+                return response.IsSuccessStatusCode
+                    ? JsonConvert.DeserializeObject<GetHealthResponse>(await response.Content.ReadAsStringAsync())
+                    : null;
+            }
+        }
+
+        public async Task<List<GetOrdersResponse>> GetOrders()
+        {
+            using (var client = createApiClient())
+            {
+                var response = await client.GetAsync("/orders");
+                return response.IsSuccessStatusCode
+                    ? JsonConvert.DeserializeObject<List<GetOrdersResponse>>(await response.Content.ReadAsStringAsync())
+                    : null;
             }
         }
     }
