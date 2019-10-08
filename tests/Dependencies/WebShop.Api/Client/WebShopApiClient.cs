@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using WebShop.Api.Configuration;
 using WebShop.Api.Models.Payment;
 using WebShop.Api.Models.User;
 
@@ -28,7 +29,7 @@ namespace WebShop.Api.Client
 
                 var client = new HttpClient(handler)
                 {
-                    BaseAddress = endpoint
+                    BaseAddress = endpoint ?? AppSettings.Instance.Endpoint
                 };
 
                 client.DefaultRequestHeaders.Accept.Clear();
