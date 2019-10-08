@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WebShopt.E2E.Tests
+namespace WebShop.E2E.Tests
 {
     [TestClass]
     public class UnitTest1
