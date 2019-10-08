@@ -64,7 +64,6 @@ namespace WebShop.Api.Client
                 client.DefaultRequestHeaders.Authorization = auth;
 
                 var response = await client.GetAsync("/login");
-
                 return new UserLoginResponse(response.IsSuccessStatusCode, await response.Content.ReadAsStringAsync());
             }
         }
@@ -74,8 +73,6 @@ namespace WebShop.Api.Client
             using (var client = createApiClient())
             {
                 var response = await client.GetAsync("/customers");
-
-                var rrr = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<GetCustomersResponse>(await response.Content.ReadAsStringAsync());
             }
         }
@@ -85,7 +82,6 @@ namespace WebShop.Api.Client
             using (var client = createApiClient())
             {
                 var response = await client.GetAsync("/health");
-
                 return JsonConvert.DeserializeObject<GetHealthResponse>(await response.Content.ReadAsStringAsync());
             }
         }
