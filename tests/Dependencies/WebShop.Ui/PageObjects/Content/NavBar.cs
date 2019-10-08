@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
-using WebShop.E2E.Tests.Extensions;
 using WebShop.Ui.Enums;
+using WebShop.Ui.Extensions;
 
 namespace WebShop.Ui.PageObjects.Content
 {

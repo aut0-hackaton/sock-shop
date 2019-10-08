@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 using WebShop.E2E.Tests.Configuration;
-using WebShop.E2E.Tests.Extensions;
+using WebShop.Ui.Extensions;
 
 namespace WebShop.E2E.Tests
 {

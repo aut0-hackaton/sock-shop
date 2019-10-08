@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebShop.E2E.Tests.Extensions
+namespace WebShop.Ui.Extensions
 {
     public static class WebDriverExtensions
     {

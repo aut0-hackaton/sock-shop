@@ -6,8 +6,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using WebShop.E2E.Tests.Configuration;
-using WebShop.E2E.Tests.Extensions;
 using WebShop.Ui.Enums;
+using WebShop.Ui.Extensions;
 using WebShop.Ui.PageObjects;
 
 namespace WebShop.E2E.Tests.Bindings
