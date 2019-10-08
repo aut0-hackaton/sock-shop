@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using WebShop.E2E.Tests.Extensions;
+using WebShop.Ui.Extensions;
 using WebShop.Ui.PageObjects.Content;
 
 namespace WebShop.Ui.PageObjects
