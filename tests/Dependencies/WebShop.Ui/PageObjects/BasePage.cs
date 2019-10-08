@@ -28,6 +28,7 @@ namespace WebShop.Ui.PageObjects
             get
             {
                 webDriver.FindElement(login).Click();
+                webDriver.WaitUntilPageLoaded();
                 return new LoginForm(webDriver);
             }
         }

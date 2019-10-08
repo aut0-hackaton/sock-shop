@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading;
 using OpenQA.Selenium;
 
 namespace WebShop.Ui.PageObjects.Content
@@ -28,9 +27,13 @@ namespace WebShop.Ui.PageObjects.Content
             set => scope.FindElement(password).SendKeys(value);
         }
 
-        public BasePage Login()
+        public BasePage Login(bool expectedSuccess)
         {
             scope.FindElement(loginBtn).Click();
+            if (expectedSuccess)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+            }
             return this;
         }
     }

@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 using WebShop.E2E.Tests.Configuration;
+using WebShop.E2E.Tests.Extensions;
 
 namespace WebShop.E2E.Tests
 {
@@ -28,17 +29,26 @@ namespace WebShop.E2E.Tests
             webDriver.Manage().Window.Maximize();
             scenarioContext.Set(webDriver);
             webDriver.Navigate().GoToUrl(TestConfig.Instance.BaseUrl);
+            webDriver.WaitUntilPageLoaded();
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            //TODO: implement logic that has to run after executing each scenario
+            webDriver.Quit();
         }
 
-        public IWebDriver CreateWebDriver()
+        private IWebDriver CreateWebDriver()
         {
             return new ChromeDriver(TestConfig.Instance.ExecutingAssemblyPath);
+        }
+
+        private void SetWebDriverTimeouts()
+        {
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            webDriver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(30);
+            webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+
         }
     }
 }

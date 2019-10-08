@@ -11,7 +11,7 @@ namespace WebShop.E2E.Tests.Extensions
         public static void WaitUntilPageLoaded(this IWebDriver webDriver)
         {
             var wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(30));
-            wait.Until(d =>(IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete");
+            wait.Until(d =>((IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete"));
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
+using WebShop.E2E.Tests.Extensions;
 using WebShop.Ui.Enums;
 
 namespace WebShop.Ui.PageObjects.Content
@@ -22,6 +23,7 @@ namespace WebShop.Ui.PageObjects.Content
                 throw new Exception($"Navigation to {page} page is not implemented");
             }
             pageObjectByPage[page].Invoke();
+            webDriver.WaitUntilPageLoaded();
         }
 
         private void GoToHome()

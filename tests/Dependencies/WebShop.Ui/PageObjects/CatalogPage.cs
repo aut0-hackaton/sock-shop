@@ -7,7 +7,7 @@ using WebShop.Ui.PageObjects.Content;
 
 namespace WebShop.Ui.PageObjects
 {
-    class CatalogPage : BasePage
+    public class CatalogPage : BasePage
     {
         private readonly By products = By.CssSelector("div[id='products'] > div");
 

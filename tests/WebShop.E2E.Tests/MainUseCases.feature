@@ -4,10 +4,11 @@
 Background:
 	Given logged in as user
 		And it is catalog page
-	When I choose socks "Colourful"
-	   * I press button "Add to cart"
-	   * I press button "in cart"
+		And product "Holy" is added to cart
 
+
+Scenario: Can add product to cart
+	Then there is new item in cart
 
 Scenario: Add 2 distinct items, pay, view order
 	
