@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using WebShop.E2E.Tests.Extensions;
 using WebShop.Ui.PageObjects.Content;
 
 namespace WebShop.Ui.PageObjects
@@ -12,12 +13,14 @@ namespace WebShop.Ui.PageObjects
         public BasePage(IWebDriver webDriver)
         {
             this.webDriver = webDriver;
+            webDriver.WaitUntilPageLoaded();
         }
 
         public BasePage(IWebDriver webDriver, By scope)
         {
             this.webDriver = webDriver;
             this.scope = webDriver.FindElement(scope);
+            webDriver.WaitUntilPageLoaded();
         }
 
         public LoginForm LoginForm
