@@ -21,6 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Dependencies\WebShop.Ui\WebShop.Ui.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Bindings\BasicStepBindings.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Hooks.cs">
       <SubType>Code</SubType>
     </Compile>

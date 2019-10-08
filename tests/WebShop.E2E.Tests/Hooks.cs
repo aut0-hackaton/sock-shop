@@ -5,6 +5,7 @@ using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using WebShop.E2E.Tests.Configuration;
 
 namespace WebShop.E2E.Tests
 {
@@ -26,6 +27,7 @@ namespace WebShop.E2E.Tests
             webDriver = CreateWebDriver();
             webDriver.Manage().Window.Maximize();
             scenarioContext.Set(webDriver);
+            webDriver.Navigate().GoToUrl("http://ec2-54-224-182-6.compute-1.amazonaws.com/index.html");
         }
 
         [AfterScenario]
@@ -36,7 +38,7 @@ namespace WebShop.E2E.Tests
 
         public IWebDriver CreateWebDriver()
         {
-            return new ChromeDriver($"{AppDomain.CurrentDomain.BaseDirectory}/chromedriver.exe");
+            return new ChromeDriver(TestConfig.Instance.BaseDirectory);
         }
     }
 }
