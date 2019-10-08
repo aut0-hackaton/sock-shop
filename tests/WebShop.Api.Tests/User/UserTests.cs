@@ -25,15 +25,29 @@ namespace WebShop.Api.Tests.User
         [TestMethod]
         public void Possible_To_Login_With_Valid_Credentials()
         {
-            var response = webShopClient.Login("user", "password").Result;
+            var response = webShopClient
+                .Login("user", "password")
+                .Result;
 
             Assert.IsNotNull(response, "Login was not successful");
         }
 
         [TestMethod]
+        public void Not_Possible_To_Login_With_InValid_Credentials()
+        {
+            var response = webShopClient
+                .Login("pepe", "boop")
+                .Result;
+
+            Assert.IsNull(response, "Login was successful, but expected - not!");
+        }
+
+        [TestMethod]
         public void Possible_To_Get_Customer()
         {
-            var response = webShopClient.GetCustomers().Result;
+            var response = webShopClient
+                .GetCustomers()
+                .Result;
 
             Assert.IsInstanceOfType(response, typeof(GetCustomersResponse));
             Assert.IsNotNull(response._Embedded);
