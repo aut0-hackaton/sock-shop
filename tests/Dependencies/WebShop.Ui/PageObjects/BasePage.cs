@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using WebShop.Ui.PageObjects.Content;
 
 namespace WebShop.Ui.PageObjects
@@ -23,10 +20,15 @@ namespace WebShop.Ui.PageObjects
             this.scope = webDriver.FindElement(scope);
         }
 
-        public LoginForm OpenLoginForm()
+        public LoginForm LoginForm
         {
-            webDriver.FindElement(login).Click();
-            return new LoginForm(webDriver);
+            get
+            {
+                webDriver.FindElement(login).Click();
+                return new LoginForm(webDriver);
+            }
         }
+
+        public NavBar NavBar => new NavBar(webDriver);
     }
 }
