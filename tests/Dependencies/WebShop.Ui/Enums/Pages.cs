@@ -8,6 +8,6 @@ namespace WebShop.Ui.Enums
     {
         Home,
         Catalog,
-        Account
+        Cart
     }
 }
