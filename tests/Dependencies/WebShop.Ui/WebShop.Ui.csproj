@@ -16,9 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Configuration\ExecutionConfig.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Requirements\Login.feature.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
